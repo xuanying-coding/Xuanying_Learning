@@ -1,4 +1,4 @@
-/* style.css */
+/* style.css - 美化升级版 */
 * {
   margin: 0;
   padding: 0;
@@ -6,33 +6,41 @@
 }
 
 body {
-  font-family: "Helvetica Neue", "Microsoft YaHei", sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f9f9f9;
+  font-family: "Helvetica Neue", "Segoe UI", "Microsoft YaHei", sans-serif;
+  line-height: 1.7;
+  color: #2d3748; /* 更柔和的深灰 */
+  background-color: #fafafa; /* 更干净的浅灰背景 */
+  transition: background-color 0.3s ease;
 }
 
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px 20px;
 }
 
 header {
   text-align: center;
-  margin-bottom: 30px;
-  padding: 20px 0;
-  border-bottom: 2px solid #eee;
+  margin-bottom: 40px;
+  padding: 30px 0 25px;
+  border-bottom: 1px solid #edf2f7; /* 更淡雅的分割线 */
 }
 
 header h1 {
-  font-size: 2.2em;
-  color: #2c3e50;
+  font-size: 2.4em;
+  font-weight: 600;
+  color: #1a202c; /* 深灰蓝，更稳重 */
+  letter-spacing: -0.5px;
 }
 
 header p {
-  color: #7f8c8d;
-  margin-top: 10px;
+  color: #718096; /* 更协调的灰色 */
+  margin-top: 12px;
+  font-size: 1.05em;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 }
 
 .post-list {
@@ -40,34 +48,75 @@ header p {
 }
 
 .post-list li {
-  padding: 12px 0;
-  border-bottom: 1px dashed #ddd;
+  padding: 16px 0;
+  border-bottom: 1px solid #edf2f7;
+  transition: background-color 0.2s ease;
+}
+
+.post-list li:hover {
+  background-color: #ffffff; /* 轻微高亮 */
+  border-radius: 6px;
+  padding-left: 4px;
+  margin: 0 -4px; /* 补偿内边距变化 */
 }
 
 .post-list a {
   text-decoration: none;
-  color: #2980b9;
-  font-size: 1.1em;
+  color: #2b6cb0; /* 更沉稳的蓝色 */
+  font-size: 1.15em;
+  font-weight: 500;
+  display: block;
+  padding: 4px 0;
+  transition: color 0.2s ease;
 }
 
 .post-list a:hover {
-  color: #e74c3c;
+  color: #e53e3e; /* 鲜艳但不刺眼的红 */
+  transform: translateX(4px);
 }
 
 footer {
   text-align: center;
-  margin-top: 40px;
-  padding-top: 20px;
-  color: #95a5a6;
-  border-top: 1px solid #eee;
+  margin-top: 50px;
+  padding-top: 25px;
+  color: #a0aec0;
+  border-top: 1px solid #edf2f7;
+  font-size: 0.95em;
 }
 
 /* 响应式：手机适配 */
 @media (max-width: 600px) {
   .container {
-    padding: 10px;
+    padding: 20px 15px;
   }
+
+  header {
+    padding: 20px 0 15px;
+    margin-bottom: 30px;
+  }
+
   header h1 {
-    font-size: 1.8em;
+    font-size: 1.9em;
+    letter-spacing: -0.3px;
+  }
+
+  header p {
+    font-size: 1em;
+    padding: 0 10px;
+  }
+
+  .post-list a {
+    font-size: 1.1em;
+  }
+
+  .post-list li:hover {
+    background-color: transparent;
+    transform: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .post-list a:hover {
+    transform: none;
   }
 }
