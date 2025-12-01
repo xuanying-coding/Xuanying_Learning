@@ -1,128 +1,222 @@
-/* style.css - Cyberpunk Theme */
+/* style.css - 清雅风格 + 流星雨动画 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ===== 流星雨背景 ===== */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(to bottom, #f8fbff, #eef5ff);
+}
+
+/* 单颗流星 */
+@keyframes meteor {
+  0% {
+    transform: translate3d(-100px, -100px, 0) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(600px, 600px, 0) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* 生成多颗流星 */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* 使用伪元素无法叠加多个动画，改用多个 .meteor 元素（需在 HTML 中加） */
+/* 所以我们换一种方式：用纯 CSS 生成流星（通过 box-shadow）——更高效 */
+
+.meteor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.meteor {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 2px;
+  height: 2px;
+  background: #a0cfff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px rgba(160, 207, 255, 0.8);
+  animation: meteor-fall 8s infinite linear;
+}
+
+.meteor:nth-child(2) {
+  top: 40%;
+  left: 15%;
+  animation-duration: 10s;
+  animation-delay: 2s;
+}
+
+.meteor:nth-child(3) {
+  top: 10%;
+  left: 80%;
+  animation-duration: 9s;
+  animation-delay: 4s;
+}
+
+.meteor:nth-child(4) {
+  top: 30%;
+  left: 70%;
+  animation-duration: 11s;
+  animation-delay: 1s;
+}
+
+@keyframes meteor-fall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(300px, 300px) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+/* ===== 页面主体样式 ===== */
 body {
-  font-family: 'Courier New', monospace, "Microsoft YaHei", sans-serif;
-  line-height: 1.7;
-  color: #e0f7fa; /* 冰青白文字 */
-  background-color: #0a0a12; /* 深空黑 */
-  background-image:
-    radial-gradient(circle at 10% 20%, rgba(58, 134, 255, 0.05) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.05) 0%, transparent 20%);
+  font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.8;
+  color: #2c3b4d;
   min-height: 100vh;
-  padding: 20px 0;
+  padding: 30px 0;
 }
 
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
-  background: rgba(10, 10, 20, 0.7);
-  backdrop-filter: blur(4px); /* 毛玻璃效果（部分浏览器支持） */
-  border: 1px solid rgba(0, 255, 255, 0.1);
-  box-shadow:
-    0 0 10px rgba(0, 255, 255, 0.1),
-    inset 0 0 8px rgba(236, 72, 153, 0.05);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 30, 60, 0.08);
+  position: relative;
+  z-index: 1;
 }
 
 header {
   text-align: center;
-  margin-bottom: 30px;
-  padding: 25px 0;
-  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  margin-bottom: 36px;
+  padding: 30px 0 20px;
+  border-bottom: 1px solid #eaeff5;
 }
 
 header h1 {
-  font-size: 2.2em;
-  font-weight: bold;
-  color: #00ffff; /* 霓虹青 */
-  text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
-  letter-spacing: 1px;
-  margin-bottom: 8px;
+  font-size: 2.3em;
+  color: #1e3a5f;
+  font-weight: 600;
+  letter-spacing: -0.5px;
 }
 
 header p {
-  color: #ff00ff; /* 霓虹粉 */
-  margin-top: 10px;
+  color: #6b7d92;
+  margin-top: 12px;
   font-size: 1.05em;
-  text-shadow: 0 0 6px rgba(255, 0, 255, 0.5);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 article h2 {
-  color: #00ffcc;
-  margin-bottom: 16px;
-  font-size: 1.8em;
-  text-shadow: 0 0 6px rgba(0, 255, 204, 0.4);
+  font-size: 1.9em;
+  color: #2a4b6e;
+  margin-bottom: 18px;
+  font-weight: 600;
 }
 
 .post-meta {
-  color: #ff6ec7;
+  color: #7a8ca5;
   font-size: 0.95em;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   display: block;
 }
 
 article p {
-  margin-bottom: 16px;
-  color: #d0f0ff;
+  margin-bottom: 18px;
+  color: #3a4b5f;
   font-size: 1.05em;
 }
 
 article p:last-of-type {
-  margin-top: 20px;
+  margin-top: 24px;
   font-style: italic;
-  color: #ff00aa;
+  color: #5a6b7f;
+  text-align: right;
 }
 
-/* 返回首页链接 */
 main > p {
-  margin-top: 30px;
   text-align: center;
+  margin-top: 32px;
 }
 
 main a {
-  color: #00ffff;
+  color: #3a7bd5;
   text-decoration: none;
-  font-weight: bold;
-  text-shadow: 0 0 6px rgba(0, 255, 255, 0.6);
-  transition: all 0.3s ease;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 main a:hover {
-  color: #ff00ff;
-  text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
-  transform: scale(1.05);
+  color: #1a5ab5;
+  text-decoration: underline;
 }
 
 footer {
   text-align: center;
-  margin-top: 40px;
-  padding-top: 20px;
-  color: #8888ff;
-  border-top: 1px solid rgba(136, 136, 255, 0.2);
+  margin-top: 48px;
+  padding-top: 24px;
+  color: #8a9bb0;
+  border-top: 1px solid #eaeff5;
   font-size: 0.95em;
-  text-shadow: 0 0 4px rgba(136, 136, 255, 0.4);
 }
 
-/* 响应式：手机适配 */
+/* 响应式 */
 @media (max-width: 600px) {
   .container {
     padding: 0 15px;
     border-radius: 0;
-    box-shadow: none;
-    background: rgba(10, 10, 20, 0.95);
+    background: rgba(255, 255, 255, 0.95);
   }
 
   header h1 {
-    font-size: 1.8em;
+    font-size: 1.9em;
   }
 
   article h2 {
-    font-size: 1.5em;
+    font-size: 1.6em;
   }
 }
