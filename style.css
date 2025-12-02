@@ -143,3 +143,49 @@ footer {
     font-size: 1.5em;
   }
 }
+
+/* ============ 导航栏样式 ============ */
+.main-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* 手机上自动换行 */
+  gap: 16px; /* 按钮间距 */
+  padding: 16px 0;
+  margin: 0 auto 24px;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  max-width: 600px; /* 限制宽度，避免太宽 */
+}
+
+.main-nav a {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #1e40af;
+  font-weight: 600;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  background-color: #e0f2fe;
+  min-width: 80px;
+  text-align: center;
+}
+
+.main-nav a:hover {
+  background-color: #bae6fd;
+  color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 手机适配：小屏幕下缩小字体和内边距 */
+@media (max-width: 480px) {
+  .main-nav {
+    gap: 10px;
+    padding: 12px 0;
+  }
+  .main-nav a {
+    padding: 6px 12px;
+    font-size: 14px;
+    min-width: 70px;
+  }
+}
