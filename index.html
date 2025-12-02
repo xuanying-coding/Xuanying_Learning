@@ -7,12 +7,13 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-   <!-- 👇 在这里插入导航栏 -->
+  
+  <!-- 导航栏：使用相对路径，兼容 GitHub Pages -->
   <nav>
-  <a href="./">首页</a>
-  <a href="contact.html">留言</a>
-  <a href="snake.html">🐍 贪吃蛇</a>
+    <a href="./">首页</a>
+    <a href="contact.html">留言</a>
+    <a href="snake.html">🐍 贪吃蛇</a>
+    <!-- <a href="gomoku.html">♟️ 五子棋</a> -->
   </nav>
 
   <div class="container">
@@ -23,22 +24,19 @@
 
     <main>
       <ul class="post-list">
-        <li>
-          <a href="posts/post1.html"> 记录生活[2025-12-01]</a>
-        </li>
-        <li>
-          <a href="posts/post2.html"> 轿夫新鞋[2025-12-01]</a>
-        </li>
-        <li>
-          <a href="posts/post3.html"> 21世纪[2000-01-01]</a>
-        </li>
+        <li><a href="posts/post1.html">记录生活 [2025-12-01]</a></li>
+        <li><a href="posts/post2.html">轿夫新鞋 [2025-12-01]</a></li>
+        <li><a href="posts/post3.html">21世纪 [2000-01-01]</a></li>
       </ul>
-      <!-- 新增：联系我按钮 -->
+
+      <!-- 可选：保留一个留言入口，或删除 -->
+      <!--
       <p style="text-align: center; margin-top: 30px;">
-      <a href="contact.html" style="display: inline-block; padding: 8px 20px; background: #e0f2ff; color: #1d4ed8; text-decoration: none; border-radius: 20px; font-weight: 500;">
-        表单测试
-      </a>
+        <a href="contact.html" style="display: inline-block; padding: 8px 20px; background: #e0f2ff; color: #1d4ed8; text-decoration: none; border-radius: 20px; font-weight: 500;">
+          给我留言 💬
+        </a>
       </p>
+      -->
     </main>
 
     <footer>
