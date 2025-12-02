@@ -1,92 +1,18 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>联系我 - 小小炫影的博客</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* 表单专属样式（可选） */
-    .form-container {
-      max-width: 600px;
-      margin: 30px auto;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-    .form-group {
-      margin-bottom: 16px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 600;
-      color: #1e40af;
-    }
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 1em;
-    }
-    .form-group textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-    button {
-      background: #2563eb;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    button:hover {
-      background: #1d4ed8;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <h1>📬 联系我</h1>
-      <p>有任何想法？欢迎留言！</p>
-    </header>
-
-    <main>
-      <div class="form-container">
-        <!-- ⚠️ 替换 YOUR_FORMSPREE_ID 为你自己的 ID -->
-        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-          <div class="form-group">
-            <label for="name">姓名</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-
-          <div class="form-group">
-            <label for="email">邮箱</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-
-          <div class="form-group">
-            <label for="message">留言内容</label>
-            <textarea id="message" name="message" placeholder="说点什么吧..." required></textarea>
-          </div>
-
-          <button type="submit">发送留言</button>
-        </form>
-      </div>
-    </main>
-
-    <footer>
-      <p><a href="index.html" style="color:#3b82f6; text-decoration: none;">← 返回首页</a></p>
-      <p>&copy; 2025 小小炫影的博客 | 同成长共前行</p>
-    </footer>
+<form action="/submit-form" method="POST">
+  <div class="form-group">
+    <label for="name">姓名</label>
+    <input type="text" id="name" name="name" required>
   </div>
-</body>
-</html>
+
+  <div class="form-group">
+    <label for="email">邮箱</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+
+  <div class="form-group">
+    <label for="message">留言内容</label>
+    <textarea id="message" name="message" required></textarea>
+  </div>
+
+  <button type="submit">发送留言</button>
+</form>
