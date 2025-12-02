@@ -1,4 +1,5 @@
-/* style.css - 几何拼接 · 清新艺术风格 */
+/* style.css - 天空大海 · 清新艺术风格 */
+
 * {
   margin: 0;
   padding: 0;
@@ -8,40 +9,14 @@
 body {
   font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
   line-height: 1.75;
-  color: #2d3748;
-  background-color: #fafbff; /* 淡蓝白底 */
+  color: #1e293b; /* 更新为更柔和的颜色 */
+  background: linear-gradient(to bottom, #e0f7ff 0%, #b3e0ff 50%, #80ccff 100%); /* 天空与海的渐变背景 */
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
 
-/* === 几何背景色块 === */
-body::before,
-body::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-}
-
-/* 左上角浅青色三角 */
-body::before {
-  top: 0;
-  left: 0;
-  width: 40%;
-  height: 30%;
-  background: #e6f2ff; /* 浅青 */
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-}
-
-/* 右下角淡粉矩形 */
-body::after {
-  bottom: 0;
-  right: 0;
-  width: 35%;
-  height: 25%;
-  background: #fff5f7; /* 淡粉 */
-  clip-path: polygon(100% 100%, 100% 0, 0 100%);
-}
+/* 删除原有的几何背景色块（body::before 和 body::after 已删除）*/
 
 /* === 内容容器 === */
 .container {
@@ -50,9 +25,11 @@ body::after {
   padding: 40px 24px;
   position: relative;
   z-index: 1;
-  background: white;
+  background: rgba(255, 255, 255, 0.85); /* 半透明白色 */
+  backdrop-filter: blur(4px); /* 毛玻璃效果 */
+  border: 1px solid rgba(176, 224, 230, 0.3); /* 海蓝色边框 */
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 20, 60, 0.06);
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15); /* 蓝色光晕 */
 }
 
 /* === 头部 === */
@@ -71,14 +48,14 @@ header::after {
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: #4a90e2; /* 主色：清雅蓝 */
+  background: #2563eb; /* 主色：海洋蓝 */
   border-radius: 2px;
 }
 
 header h1 {
   font-size: 2.2em;
   font-weight: 600;
-  color: #1a365d;
+  color: #0c4a6e; /* 更深一点的蓝色 */
   letter-spacing: -0.5px;
   margin-bottom: 12px;
 }
@@ -94,7 +71,7 @@ header p {
 /* === 文章内容 === */
 article h2 {
   font-size: 1.8em;
-  color: #1e40af;
+  color: #1d4ed8; /* 稍深的蓝 */
   margin-bottom: 20px;
   font-weight: 600;
 }
@@ -127,16 +104,16 @@ main > p {
 }
 
 main a {
-  color: #3b82f6;
+  color: #0ea5e9; /* 海洋蓝 */
   text-decoration: none;
   font-weight: 500;
   padding: 4px 8px;
   border-radius: 4px;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
 }
-
 main a:hover {
-  background: #eff6ff;
+  background: #ecfeff; /* 极浅蓝底 */
+  transform: translateY(-2px);
   text-decoration: underline;
 }
 
@@ -145,7 +122,7 @@ footer {
   text-align: center;
   margin-top: 48px;
   padding-top: 24px;
-  color: #94a3b8;
+  color: #64748b; /* 更深一些 */
   font-size: 0.95em;
   border-top: 1px solid #f1f5f9;
 }
@@ -164,11 +141,5 @@ footer {
 
   article h2 {
     font-size: 1.5em;
-  }
-
-  /* 移动端隐藏部分几何背景，避免干扰 */
-  body::before,
-  body::after {
-    display: none;
   }
 }
