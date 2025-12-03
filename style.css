@@ -261,7 +261,7 @@ button[type="submit"]:active {
   transform: translateY(0);
 }
 ✅ 步骤三：确保 HTML 中的 <form> 在合适位置
-你的 HTML 结构应该类似这样（放在 <main> 或 <article> 内）：
+你的 HTML  结构应该类似这样（放在 <main> 或 <article> 内）：
 
 Html
 预览
